@@ -1,0 +1,20 @@
+---
+const greetings = () => {
+    const greetWords = [
+        "Hello",
+        "こんにちは",
+        "안녕하세요",
+        "Wilujeung Sumping",
+        "Hallo",
+    ];
+    let count = 0;
+    setInterval(() => {
+        count++;
+        if (count > greetWords.length) count = 0;
+    }, 300);
+
+    return greetWords[count];
+};
+---
+
+{greetings}
