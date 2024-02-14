@@ -8,9 +8,10 @@ const { href, class: className, ...props } = Astro.props;
 const { pathname } = Astro.url;
 const subpath = pathname.match(/[^\/]+/g);
 const isActive = href === pathname || href === '/' + subpath?.[0];
+const defaultClass= 'text-zinc-500 md:text-zinc-500'
 ---
 
-<a href={href} class:list={[className, { active: isActive }]} {...props}>
+<a href={href} class:list={[className, { active: isActive }, defaultClass]} {...props}>
 	<slot />
 </a>
 <style>
@@ -19,7 +20,6 @@ const isActive = href === pathname || href === '/' + subpath?.[0];
 		text-decoration: none;
 	}
 	a.active {
-		font-weight: bolder;
-		text-decoration: underline;
+		@apply text-zinc-800 underline
 	}
 </style>

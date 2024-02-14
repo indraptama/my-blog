@@ -19,6 +19,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<main class="prose prose-sm md:prose mt-20 mx-auto px-4">
 			<article>
 				<div class="title">
+					<h1 class="mb-2 md:mb-2">{title}</h1>
 					<div class="date">
 						<FormattedDate date={pubDate} />
 						{
@@ -30,7 +31,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 							)
 						}
 					</div>
-					<h1>{title}</h1>
+				</div>
+				<div class="flex justify-end mb-8">
+					<a href="/blog" class="text-zinc-500 md:text-zinc-500 no-underline hover:underline md:no-underline md:hover:underline">&larr; Kembali</a>
 				</div>
 				<slot />
 			</article>
