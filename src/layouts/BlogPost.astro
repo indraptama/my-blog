@@ -11,33 +11,39 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
 <html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-	</head>
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
 
-	<body>
-		<main class="prose prose-sm md:prose mt-20 mx-auto px-4">
-			<article>
-				<div class="title">
-					<h1 class="mb-2 md:mb-2">{title}</h1>
-					<div class="date">
-						<FormattedDate date={pubDate} />
-						{
-							updatedDate && (
-								<div class="last-updated-on">
-									Last updated on{" "}
-									<FormattedDate date={updatedDate} />
-								</div>
-							)
-						}
-					</div>
-				</div>
-				<div class="flex justify-end mb-8">
-					<a href="/blog" class="text-zinc-500 md:text-zinc-500 no-underline hover:underline md:no-underline md:hover:underline">&larr; Kembali</a>
-				</div>
-				<slot />
-			</article>
-		</main>
-		<Footer />
-	</body>
+  <body>
+    <main class="prose prose-sm md:prose mt-20 mx-auto px-4">
+      <article>
+        <div class="title">
+          <h1 class="mb-2 md:mb-4">{title}</h1>
+          <div class="flex justify-between items-center">
+            <div class="date">
+              <FormattedDate date={pubDate} />
+              {
+                updatedDate && (
+                  <div class="last-updated-on">
+                    Last updated on <FormattedDate date={updatedDate} />
+                  </div>
+                )
+              }
+            </div>
+
+            <div class="flex justify-end">
+              <a
+                href="/blog"
+                class="text-zinc-500 md:text-zinc-500 no-underline hover:underline md:no-underline md:hover:underline"
+                >&larr; Kembali</a
+              >
+            </div>
+          </div>
+        </div>
+        <slot />
+      </article>
+    </main>
+    <Footer />
+  </body>
 </html>
